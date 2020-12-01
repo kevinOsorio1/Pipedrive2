@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "../../Components/ItemList/ItemList";
-import Button from "react-bootstrap/Button";
 import ItemService from "../../../services/ItemServices";
 import Aux from "../../../hoc/Aux";
 import Modal from "../../../UI/Modal/Modal";
@@ -36,7 +35,7 @@ const Items = (props) => {
                 use={console.log("post product")}
                 title="Crear nuevo producto"
             >
-                <ItemForm  show={true} />
+                <ItemForm show={true} />
             </Modal>
             <ItemList data={data} />
         </Aux>
