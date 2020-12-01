@@ -1,6 +1,12 @@
-import React from "react";
+import React, { render } from "react";
 import Button from "react-bootstrap/Button";
 
-function Button(props) {
-    
+function ButtonContext(props) {
+    return (
+        <Button variant={props.type} onClick={props.clicked}>
+            {props.children}
+        </Button>
+    );
 }
+
+export default ButtonContext;

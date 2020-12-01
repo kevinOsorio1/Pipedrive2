@@ -1,6 +1,10 @@
-import { Button, Modal } from "react-bootstrap/Button";
+import React, { render } from "react";
 
-function Modal() {
+import Modal from "react-bootstrap/Modal";
+import ButtonContext from "../Button/Button";
+import { useState } from "react";
+
+function ModalContext(props) {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -8,28 +12,25 @@ function Modal() {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
-            </Button>
+            <ButtonContext type="primary" clicked={handleShow}>
+                Crear Nuevo Producto
+            </ButtonContext>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>{props.children}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    Woohoo, you're reading this text in a modal!
-                </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <ButtonContext type="secondary" clicked={handleClose}>
                         Close
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                    </Button>
+                    </ButtonContext>
+                    <ButtonContext type="primary" clicked={props.use}>
+                        Create
+                    </ButtonContext>
                 </Modal.Footer>
             </Modal>
         </>
     );
 }
 
-render(<Example />);
+export default ModalContext;

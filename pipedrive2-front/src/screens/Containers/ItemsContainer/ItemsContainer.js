@@ -29,7 +29,7 @@ const Items = (props) => {
 
     return (
         <div>
-            <Button variant="primary">Crear nuevo Producto</Button>
+           
             <ItemList data={data} />
         </div>
     );
