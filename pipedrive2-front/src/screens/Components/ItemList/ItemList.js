@@ -1,5 +1,6 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
+// Componente que lista los items recibidos 
 const itememList = (props) => {
     console.log("RENDERING ITEMLIST");
     return (
@@ -14,7 +15,7 @@ const itememList = (props) => {
             <tbody>
                 {(props.data || []).map((item) => {
                     return (
-                        <tr key={item.id}>
+                        <tr key={item.id}>          
                             <td>{item.id}</td>
                             <td>{item.name}</td>
                             <td>{item.itemCode}</td>

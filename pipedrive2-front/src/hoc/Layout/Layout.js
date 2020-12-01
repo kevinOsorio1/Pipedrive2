@@ -1,9 +1,9 @@
 import React from "react";
-import Items from "../../screens/Containers/ItemsContainer/ItemsContainer";
+import ItemsContainer from "../../screens/Containers/ItemsContainer/ItemsContainer";
 function Layout() {
     return (
         <div>
-            <Items />
+            <ItemsContainer />
         </div>
     );
 }
