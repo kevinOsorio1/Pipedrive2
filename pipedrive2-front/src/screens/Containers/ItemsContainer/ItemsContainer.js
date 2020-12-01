@@ -8,7 +8,6 @@ const Items = (props) => {
     let [data, setData] = useState();
 
     useEffect(() => {
-        
         fetch(
             "https://api.pipedrive.com/v1/products?start=0&api_token=5e0c57f012b8c4af1fb8c084edd9171619140d53"
         )
@@ -30,7 +29,7 @@ const Items = (props) => {
 
     return (
         <div>
-            <Button variant="primary">Crear nuevo Producto</Button>{" "}
+            <Button variant="primary">Crear nuevo Producto</Button>
             <ItemList data={data} />
         </div>
     );

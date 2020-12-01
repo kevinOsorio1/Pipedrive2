@@ -1,0 +1,157 @@
+Iteración 1
+Se abarcara Las historias de usuario de Productos
+Product
+1- Listar Product
+
+yo como usuario
+quiero ver una lista de productos
+para ver todos los productos creados
+
+Ejemplo
+https://www.dropbox.com/sh/irx51nmx7k4eh7k/AAAVfHAfz8Z7QclMXBsmGugZa?dl=0&preview=03_view_prod.jpeg
+
+Criterios de Aceptacion: 
+
+1- Se debe poder ver todos los Items creados 
+Crear Producto
+
+Yo como usuario 
+quiero tener disponible un botón
+para crear un nuevo producto
+
+Formulario Crear Producto: 
+
+nombre del producto : string
+código del producto: string
+Categoria (select)
+Unidad : string
+Precio unitario : number
+Moneda (Predef)
+impuestos : number
+
+Criterios de aceptacion *
+Editar Producto
+yo como usuario
+quiero poder editar los atributos de un producto existente
+
+https://uc4f5225365ef0e0ee35c8aeda13.previews.dropboxusercontent.com/p/thumb/AA8d0_CH0u3bCcWfn4L4twMNWOzo7HInT3CebMkQ-DyQJ90nu92fBYgodhzZb4kOaQE3qmUwZheXT2K62DXttQsSYcNdRlFd59p3u2kmVV2dbRf6azsIplJKvywANMoDB07Y6TY918_w3pYdGLu0W6_oChTvq5ekuyr60BBHJczc1A2kmsYQWJkA88xuS0qA9oxfjPk7kkPLDufnFJmsxaep8YnYwtDXoNgYrhvvW7-QETSNI-Wjdh7GMuBtq8boN288o5E4ueyJbApbn82pvWaWJpohrFsvauAuBGjwRZR_7gTjUfF1W_W6d3hHg7OMM_jM2C0gcRdHUkNoC725Rw-u85I-eLzcRIvJAhNKVMUjwA/p.jpeg?fv_content=true&size_mode=5
+
+Criterios de aceptación:
+-Se debe representar las posibles categorías dentro de un select
+-Se debe representar las posibles monedas dentro de un select
+-Se debe poder ingresar una descripción, campo que no fue solicitado en la creación del producto.
+*
+
+
+Eliminar Producto
+Yo como usuario
+quiero cambiar el estado de un producto
+para dejarlo deshabilitado
+
+
+
+
+Categorías
+Listar* categorías
+
+Yo como usuario 
+quiero poder listar las categorías existentes
+
+Criterios de aceptación:
+Se debe representar en la vista con un select  *
+
+Monedas
+Listar* monedas
+
+Yo como usuario 
+quiero poder listar las monedas existentes
+
+Criterios de aceptación:
+Se debe representar en la vista con un select
+
+
+
+
+Precio
+Crear nuevo precio de Producto
+
+Yo como usuario 
+quiero poder agregar un nuevo precio a un producto existente
+
+Criterio de aceptación:
+-Se debe poder seleccionar la moneda desde un listado (select)
+-No se puede ingresar un registro nuevo con la misma moneda de un registro existente vinculado al mismo producto.
+
+
+Editar precio Producto
+
+Yo como usuario 
+quiero poder agregar un nuevo precio a un producto existente
+
+Criterio de aceptación:
+-Se debe poder seleccionar la moneda desde un listado (select)
+-No se puede ingresar un registro nuevo con la misma moneda de un registro existente vinculado al mismo producto. Cada precio dentro de un producto (no asociado a una variación) tiene una moneda distinta.
+Eliminar precio
+
+Yo como usuario 
+quiero poder eliminar un precio asociado a un producto
+
+Criterio de aceptación:
+-Se debe desplegar una alerta (modal) para confirmar la eliminación(desactivación) del registro.
+
+Variación
+Crear nueva variación de Producto
+
+Yo como usuario 
+quiero poder agregar una nueva variación a un producto existente
+
+Criterio de aceptación:
+-Se debe poder seleccionar la moneda desde un listado (select)
+-Se debe poder crear un registro de validación con la misma moneda de un registro de precio ya vinculado al producto
+-Se debe poder crear un registro de validación con la misma moneda de un registro de validación ya vinculado al producto
+Crear nuevo precio a variación existente
+
+Yo como usuario 
+quiero poder agregar un nuevo registro de precio a
+una variación ya existente.
+
+Criterio de aceptación:
+-Se debe poder seleccionar la moneda desde un listado (select)
+-Se debe poder crear un registro de validación con la misma moneda de un registro de precio ya vinculado al producto
+-No se puede ingresar un registro nuevo con la misma moneda de un registro de precio existente dentro de una variación. Cada precio dentro de variación tiene una moneda distinta.
+
+Editar una variación existente
+
+Yo como usuario 
+quiero poder editar el nombre de una variación existente
+
+Criterio de aceptación:
+-Se debe poder editar desde un modal.
+-No debe permitir dejar el nombre en blanco (‘’) o registrar como nombre un tipo NULL
+
+
+Editar un precio existente asociado a una variación
+
+Yo como usuario 
+quiero poder editar el precio de una variación
+
+Criterio de aceptación:
+-Se debe poder editar ‘Precio Unitario’ (price), ‘Coste por unidad’ (cost) y Moneda.
+-La moneda se debe seleccionar desde un menú desplegable.
+-No debe permitir registrar (seleccionar) una moneda ya empleada por otro registro dentro de la misma variación.
+
+Eliminar un precio existente asociado a una variación
+
+Yo como usuario 
+quiero poder eliminar un registro de precio existente dentro de una variación
+
+Criterio de aceptación:
+-Se debe desplegar una alerta (modal) para confirmar la eliminación(desactivación) del registro.
+
+Eliminar una variación existente asociada a un producto
+
+Yo como usuario 
+quiero poder eliminar un registro de variación existente asociado a un producto
+
+Criterio de aceptación:
+-Se debe desplegar una alerta (modal) para confirmar la eliminación(desactivación) del registro.

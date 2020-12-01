@@ -6,4 +6,4 @@ const ItemReducer = (state = [], action) => {
             return state;
     }
 };
-export default PostReducer;
+export default ItemReducer;
