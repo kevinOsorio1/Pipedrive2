@@ -1,9 +1,11 @@
 import React, { render } from "react";
-
+import classes from "./Modal.css";
+import backdropClasses from "../Backdrop/Backdrop.css";
 import Modal from "react-bootstrap/Modal";
 import ButtonContext from "../Button/Button";
 import { useState } from "react";
-
+import Backdrop from "../Backdrop/Backdrop";
+import Aux from "../../hoc/Aux";
 function ModalContext(props) {
     const [show, setShow] = useState(false);
 
@@ -11,18 +13,24 @@ function ModalContext(props) {
     const handleShow = () => setShow(true);
 
     return (
-        <>
+        <Aux>
             <ButtonContext type="primary" clicked={handleShow}>
                 Crear Nuevo Producto
             </ButtonContext>
-
-            <Modal show={show} onHide={handleClose} >
+            <Backdrop show={props.show} clicked={handleClose} />
+            <Modal
+                backdropClassName={backdropClasses.Backdrop}
+                show={show}
+                onHide={handleClose}
+                style={{
+                    transform: show ? "translateY(0)" : "translateY(-100vh)",
+                    opacity: show ? "1" : "0",
+                }}
+            >
                 <Modal.Header closeButton>
                     <Modal.Title>{props.title}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    {props.children}
-                </Modal.Body>
+                <Modal.Body>{props.children}</Modal.Body>
                 <Modal.Footer>
                     <ButtonContext type="secondary" clicked={handleClose}>
                         Close
@@ -32,7 +40,7 @@ function ModalContext(props) {
                     </ButtonContext>
                 </Modal.Footer>
             </Modal>
-        </>
+        </Aux>
     );
 }
 

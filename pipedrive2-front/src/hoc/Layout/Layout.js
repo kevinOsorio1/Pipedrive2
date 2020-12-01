@@ -1,18 +1,12 @@
 import React, { render } from "react";
 import ItemsContainer from "../../screens/Containers/ItemsContainer/ItemsContainer";
-import Modal from "../../UI/Modal/Modal";
-import ItemForm from "../../screens/Components/ItemForm/ItemForm";
+
+import Aux from "../../hoc/Aux";
 function Layout() {
     return (
-        <div>
-            <Modal
-                use={console.log("post product")}
-                title="Crear nuevo producto"
-            >
-                <ItemForm />
-            </Modal>
+        <Aux>
             <ItemsContainer />
-        </div>
+        </Aux>
     );
 }
 
