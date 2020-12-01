@@ -16,7 +16,7 @@ function ModalContext(props) {
                 Crear Nuevo Producto
             </ButtonContext>
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} >
                 <Modal.Header closeButton>
                     <Modal.Title>{props.children}</Modal.Title>
                 </Modal.Header>
