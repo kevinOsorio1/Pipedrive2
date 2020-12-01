@@ -18,8 +18,11 @@ function ModalContext(props) {
 
             <Modal show={show} onHide={handleClose} >
                 <Modal.Header closeButton>
-                    <Modal.Title>{props.children}</Modal.Title>
+                    <Modal.Title>{props.title}</Modal.Title>
                 </Modal.Header>
+                <Modal.Body>
+                    {props.children}
+                </Modal.Body>
                 <Modal.Footer>
                     <ButtonContext type="secondary" clicked={handleClose}>
                         Close
