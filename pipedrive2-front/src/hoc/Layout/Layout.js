@@ -7,10 +7,12 @@ import {
     Link,
     NavLink,
 } from "react-router-dom";
+import Modal from "../../UI/Modal/Modal";
 
 import ItemsContainer from "../../screens/Containers/ItemsContainer/ItemsContainer";
 
 import Aux from "../../hoc/Aux";
+import ItemForm from "../../screens/Components/ItemForm/ItemForm";
 function Layout() {
     return (
         <div className="container mt-5">
@@ -34,7 +36,7 @@ function Layout() {
                             <ItemsContainer />
                         </Route>
 
-                        <Route path="/producto">
+                        <Route path="/producto/:id">
                             aqui va el detalle producto
                         </Route>
                     </Switch>

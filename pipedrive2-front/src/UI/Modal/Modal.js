@@ -21,9 +21,9 @@ function ModalContext(props) {
                 </ButtonContext>
                 <Modal
                     backdrop
+                    backdropClassName={backdropClasses.Backdrop}
                     centered={true}
                     autoFocus={true}
-                    backdropClassName={backdropClasses.Backdrop}
                     show={show}
                     onHide={handleClose}
                     style={{
@@ -40,9 +40,6 @@ function ModalContext(props) {
                     <Modal.Footer>
                         <ButtonContext type="secondary" clicked={handleClose}>
                             Close
-                        </ButtonContext>
-                        <ButtonContext type="primary" clicked={props.use}>
-                            Create
                         </ButtonContext>
                     </Modal.Footer>
                 </Modal>
