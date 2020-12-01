@@ -2,6 +2,7 @@ import React, { render } from "react";
 import classes from "./Modal.css";
 import backdropClasses from "../Backdrop/Backdrop.css";
 import Modal from "react-bootstrap/Modal";
+import Jumbotron from "react-bootstrap/Jumbotron";
 import ButtonContext from "../Button/Button";
 import { useState } from "react";
 import Backdrop from "../Backdrop/Backdrop";
@@ -14,11 +15,50 @@ function ModalContext(props) {
 
     return (
         <Aux>
-            <ButtonContext type="primary" clicked={handleShow}>
+            <Jumbotron>
+                <ButtonContext type="primary" clicked={handleShow}>
+                    Crear Nuevo Producto
+                </ButtonContext>
+                <Modal
+                    backdrop
+                    centered={true}
+                    autoFocus={true}
+                    backdropClassName={backdropClasses.Backdrop}
+                    show={show}
+                    onHide={handleClose}
+                    style={{
+                        transform: show
+                            ? "translateY(0)"
+                            : "translateY(-100vh)",
+                        opacity: show ? "1" : "0",
+                    }}
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title>{props.title}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>{props.children}</Modal.Body>
+                    <Modal.Footer>
+                        <ButtonContext type="secondary" clicked={handleClose}>
+                            Close
+                        </ButtonContext>
+                        <ButtonContext type="primary" clicked={props.use}>
+                            Create
+                        </ButtonContext>
+                    </Modal.Footer>
+                </Modal>
+            </Jumbotron>
+        </Aux>
+    );
+}
+
+export default ModalContext;
+/**
+ * <ButtonContext type="primary" clicked={handleShow}>
                 Crear Nuevo Producto
             </ButtonContext>
-            <Backdrop show={props.show} clicked={handleClose} />
             <Modal
+                centered={true}
+                autoFocus={true}
                 backdropClassName={backdropClasses.Backdrop}
                 show={show}
                 onHide={handleClose}
@@ -40,8 +80,4 @@ function ModalContext(props) {
                     </ButtonContext>
                 </Modal.Footer>
             </Modal>
-        </Aux>
-    );
-}
-
-export default ModalContext;
+ */
