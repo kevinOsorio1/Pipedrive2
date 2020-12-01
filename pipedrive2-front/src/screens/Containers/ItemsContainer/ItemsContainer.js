@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "../../Components/ItemList/ItemList";
-import Button from "react-bootstrap/Button";
 import ItemService from "../../../services/ItemServices";
 
 //Contenedor de Pagina de Ver Items + Crear Items
@@ -28,8 +27,7 @@ const Items = (props) => {
     }, []);
 
     return (
-        <div>
-           
+        <div>  
             <ItemList data={data} />
         </div>
     );
