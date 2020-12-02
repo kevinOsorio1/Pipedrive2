@@ -12,22 +12,7 @@ function ItemDetailsContainer(props) {
     })
     return(
         <div>
-            este es el id: {id}
-            este es el id: {id}
-            este es el id: {id}
-            este es el id: {id}
-            este es el id: {id}
-            este es el id: {id}
-            este es el id: {id}
-            este es el id: {id}
-            este es el id: {id}
-            este es el id: {id}
-            este es el id: {id}
-            este es el id: {id}
-            este es el id: {id}
-            este es el id: {id}
-            este es el id: {id}
-            este es el id: {id}
+            
         </div>
     );
 }

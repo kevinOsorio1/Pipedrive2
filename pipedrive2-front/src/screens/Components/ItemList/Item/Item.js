@@ -6,7 +6,7 @@ function Item(props) {
     console.log('props data on item', props.data)
     let history = useHistory();
     function handleClick() {
-        history.push("/product/:id",{id:props.data.id},);
+        history.push("/product/:id",{id:props.data.id});
       }
     const displayItemEdit = () =>{
         return (<ItemDetailsContainer item={props.data}/>);
