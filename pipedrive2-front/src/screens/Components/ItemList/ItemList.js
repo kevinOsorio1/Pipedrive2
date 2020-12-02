@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Table from "react-bootstrap/Table";
-import Aux from "../../../hoc/Aux";
+
 import Item from "./Item/Item";
 // Componente que lista los items recibidos
-const itememList = (props) => {
+function ItemList(props) {
+
+    console.log('products item list', props.data);
     console.log("RENDERING ITEMLIST");
     return (
         <div>
-            <Aux>
+            <div>
                 <Table bordered={true}>
                     <thead>
                         <tr>
@@ -15,14 +17,19 @@ const itememList = (props) => {
                             <th>codigo de producto</th>
                         </tr>
                     </thead>
-                    <tbody>{<Item data={props.data}></Item>}</tbody>
+                    <tbody>{(props.data || []).map((item) => {
+                        for (const keys in item) {
+                            return (<Item data={item}></Item>);
+                        }
+
+                    })}</tbody>
                 </Table>
-            </Aux>
+            </div>
         </div>
     );
 };
 
-export default itememList;
+export default ItemList;
 
 /*
 

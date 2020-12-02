@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
-import Aux from "../../../hoc/Aux";
+
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { create } from "../../../services/ItemServices";
@@ -43,7 +43,7 @@ function ItemForm(props) {
     console.log(product);
 
     return (
-        <Aux>
+        <div>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Form.Row>
                     <Form.Group as={Col} md="7" controlId="name">
@@ -116,7 +116,7 @@ function ItemForm(props) {
                     create(product)
                     }}>Create</Button>
             </Form>
-        </Aux>
+        </div>
     );
 }
 export default ItemForm;

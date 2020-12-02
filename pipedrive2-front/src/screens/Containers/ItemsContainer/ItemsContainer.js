@@ -1,21 +1,30 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "../../Components/ItemList/ItemList";
-import {findAll} from '../../../services/ItemServices';
+import { findAll } from "../../../services/ItemServices";
 import Aux from "../../../hoc/Aux";
 import Modal from "../../../UI/Modal/Modal";
 import ItemForm from "../../../screens/Components/ItemForm/ItemForm";
 
 //Contenedor de Pagina de Ver Items + Crear Items
 const Items = (props) => {
-    let [data, setData] = useState();
-    let [headers,setHeaders] = useState();
+    const [data, setData] = useState();
+    const [headers, setHeaders] = useState();
     useEffect(() => {
-        const loadedItems = findAll();
-        setData(loadedItems);
-    }, []);
+        findAll().then((commingData) => {
+            console.log("comming", commingData);
+            const loadedItems = commingData;
+            return loadedItems;
 
+        }).then(loadedItems => {
+            console.log('loadeditems to state' ,loadedItems);
+            setData([...loadedItems]);
+            
+        }).catch(err => console.error(err));
+
+    }, []);
+    console.log('data',data);
     return (
-        <Aux>
+        <div>
             <Modal
                 use={console.log("post product")}
                 title="Crear nuevo producto"
@@ -23,7 +32,9 @@ const Items = (props) => {
                 <ItemForm show={true} />
             </Modal>
             <ItemList data={data} />
-        </Aux>
+        </div>
+            
+        
     );
 };
 
@@ -31,5 +42,5 @@ export default Items;
 
 /**
  * {
-                
+
  */

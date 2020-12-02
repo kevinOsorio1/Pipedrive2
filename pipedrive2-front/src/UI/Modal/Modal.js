@@ -6,7 +6,6 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import ButtonContext from "../Button/Button";
 import { useState } from "react";
 import Backdrop from "../Backdrop/Backdrop";
-import Aux from "../../hoc/Aux";
 function ModalContext(props) {
     const [show, setShow] = useState(false);
 
@@ -14,7 +13,7 @@ function ModalContext(props) {
     const handleShow = () => setShow(true);
 
     return (
-        <Aux style={classes.Modal}>
+        <div>
             <Jumbotron>
                 <ButtonContext type="primary" clicked={handleShow}>
                     Crear Nuevo Producto
@@ -44,7 +43,7 @@ function ModalContext(props) {
                     </Modal.Footer>
                 </Modal>
             </Jumbotron>
-        </Aux>
+        </div>
     );
 }
 

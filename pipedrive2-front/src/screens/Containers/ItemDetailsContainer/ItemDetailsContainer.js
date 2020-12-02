@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 
-function ItemDetails(props) {
-    const [product, setProduct] = useState();
+function ItemDetailsContainer(props) {
+    const [product, setProduct] = useState(props.item);
+    return(
+        <div>
+            {product.name}
+        </div>
+    );
 }
+
+export default ItemDetailsContainer;
