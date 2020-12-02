@@ -10,5 +10,5 @@ const API = axios.create({
         
     },
 });
-axios.defaults.baseURL = 'https://api.pipedrive.com/v1';
+
 export default API;
