@@ -34,7 +34,7 @@ function AppRouter(props) {
                             {<ItemsContainer />}
                         </Route>
 
-                        <Route path="/producto/:id">
+                        <Route path="/producto">
                             <ItemsDetailsContainer />
                         </Route>
 
