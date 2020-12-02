@@ -5,7 +5,7 @@ import FormControl from "react-bootstrap/FormControl";
 import Aux from "../../../hoc/Aux";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import ItemService from "../../../services/ItemServices";
+import { create } from "../../../services/ItemServices";
 import CreateProduct from "./CreateProduct";
 const DEFAULT_PRODUCT = {
     name: "",
@@ -24,19 +24,18 @@ function ItemForm(props) {
             event.preventDefault();
             event.stopPropagation();
         } else {
-            ItemService.create(product);
+            create(product);
         }
 
         setValidated(true);
     };
-
+    
     const handleChange = (ev) => {
         const { value, name } = ev.target;
 
         setProduct((prevState) => {
             prevState[name] = value;
             console.log(prevState);
-
             return prevState;
         });
     };
@@ -50,7 +49,6 @@ function ItemForm(props) {
                     <Form.Group as={Col} md="7" controlId="name">
                         <Form.Label>Nombre de Producto</Form.Label>
                         <Form.Control
-                            defaultValue={product.name}
                             name="name"
                                required
                             type="text"
@@ -63,7 +61,6 @@ function ItemForm(props) {
                     <Form.Group as={Col} md="7" controlId="code">
                         <Form.Label>Codigo del Producto</Form.Label>
                         <Form.Control
-                            defaultValue={product.code}
                             name="code"
                             type="text"
                             placeholder="Codigo del Producto"
@@ -74,7 +71,6 @@ function ItemForm(props) {
                     <Form.Group as={Col} md="7" controlId="category_id">
                         <Form.Label>Categoria</Form.Label>
                         <Form.Control
-                            defaultValue={product.category_id}
                             onChange={handleChange}
                             name="category_id"
                             as="select"
@@ -93,7 +89,6 @@ function ItemForm(props) {
                     >
                         <Form.Label>Unidad</Form.Label>
                         <Form.Control
-                            defaultValue={product.unit}
                             name="unit"
                             type="text"
                             placeholder="Unidad"
@@ -108,7 +103,6 @@ function ItemForm(props) {
                     >
                         <Form.Label>Impuesto</Form.Label>
                         <Form.Control
-                            defaultValue={product.tax}
                             name="tax"
                             required
                             type="number"
@@ -118,14 +112,9 @@ function ItemForm(props) {
                     </Form.Group>
                 </Form.Row>
                 <Form.Group></Form.Group>
-                <Button
-                    type="submit"
-                    onClick={() => (
-                        <CreateProduct item={product}></CreateProduct>
-                    )}
-                >
-                    Create
-                </Button>
+                <Button type="button" onClick={() =>{
+                    create(product)
+                    }}>Create</Button>
             </Form>
         </Aux>
     );
