@@ -1,13 +1,12 @@
 import React from "react";
 import { useEffect } from "react";
-import ItemService from "../../../services/ItemServices";
+import { create } from "../../../services/ItemServices";
 function CreateProduct(props) {
-    useEffect((props) => {
-        // POST request using axios inside useEffect React hook
+    useEffect(() => {
         const itemJson = JSON.stringify(props.item);
         console.log(props.item);
-        ItemService.create(itemJson);
-
+        create(itemJson).then((res) => console.log(res));
+        // POST request using axios inside useEffect React hook
         // empty dependency array means this effect will only run once (like componentDidMount in classes)
     }, []);
     return <div></div>;

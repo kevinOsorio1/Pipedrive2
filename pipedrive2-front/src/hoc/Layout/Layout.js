@@ -41,12 +41,7 @@ function Layout() {
                         </Route>
                     </Switch>
 
-                    <Modal
-                        use={console.log("post product")}
-                        title="Crear nuevo producto"
-                    >
-                        <ItemForm />
-                    </Modal>
+                    
                 </div>
             </Router>
         </div>
