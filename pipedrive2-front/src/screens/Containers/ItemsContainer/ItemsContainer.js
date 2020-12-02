@@ -23,7 +23,6 @@ const Items = (props) => {
                         name: res[key].name,
                         itemCode: res[key].code,
                     });
-                    console.log(JSON.stringify(loadedItems));
                 }
                 setData(loadedItems);
             });

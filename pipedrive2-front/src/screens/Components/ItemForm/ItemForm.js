@@ -5,14 +5,14 @@ import FormControl from "react-bootstrap/FormControl";
 import Aux from "../../../hoc/Aux";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import ItemService from "../../../services/ItemServices";
+import CreateProduct from "./CreateProduct";
 const DEFAULT_PRODUCT = {
     name: "",
     code: "",
     category_id: 0,
     unit: "",
-    price: 0,
-    currency: "",
-    tax: "",
+    tax: 0,
 };
 function ItemForm(props) {
     const [validated, setValidated] = useState(false);
@@ -24,10 +24,12 @@ function ItemForm(props) {
             event.preventDefault();
             event.stopPropagation();
         } else {
+            ItemService.create(product);
         }
 
         setValidated(true);
     };
+
     const handleChange = (ev) => {
         const { value, name } = ev.target;
 
@@ -38,6 +40,7 @@ function ItemForm(props) {
             return prevState;
         });
     };
+
     console.log(product);
 
     return (
@@ -97,16 +100,47 @@ function ItemForm(props) {
                         />
                         <FormControl.Feedback>Correcto</FormControl.Feedback>
                     </Form.Group>
-                    <Form.Row>
-                        <Form.Group
-                            onChange={handleChange}
+                    <Form.Group
+                        onChange={handleChange}
+                        as={Col}
+                        md="7"
+                        controlId="tax"
+                    >
+                        <Form.Label>Impuesto</Form.Label>
+                        <Form.Control
+                            defaultValue={product.tax}
+                            name="tax"
+                            required
+                            type="number"
+                            placeholder="Impuesto"
+                        />
+                        <FormControl.Feedback>Correcto</FormControl.Feedback>
+                    </Form.Group>
+                </Form.Row>
+                <Form.Group></Form.Group>
+                <Button
+                    type="submit"
+                    onClick={() => (
+                        <CreateProduct item={product}></CreateProduct>
+                    )}
+                >
+                    Create
+                </Button>
+            </Form>
+        </Aux>
+    );
+}
+export default ItemForm;
+
+/**
+ * <Form.Group
+                            onChange={priceHandleChange}
                             as={Col}
                             md="5"
                             controlId="price"
                         >
                             <Form.Label>Precio Unitario</Form.Label>
                             <Form.Control
-                                value={product.price}
                                 defaultValue={product.price}
                                 name="price"
                                 required
@@ -118,14 +152,13 @@ function ItemForm(props) {
                             </FormControl.Feedback>
                         </Form.Group>
                         <Form.Group
-                            onChange={handleChange}
+                            onChange={priceHandleChange}
                             as={Col}
                             md="5"
                             controlId="currency"
                         >
                             <Form.Label>Moneda</Form.Label>
                             <Form.Control
-                                value={product.currency}
                                 defaultValue={product.currency}
                                 name="currency"
                                 as="select"
@@ -138,9 +171,7 @@ function ItemForm(props) {
                                 Correcto
                             </FormControl.Feedback>
                         </Form.Group>
-                    </Form.Row>
-
-                    <Form.Group
+                        <Form.Group
                         onChange={handleChange}
                         as={Col}
                         md="7"
@@ -148,7 +179,6 @@ function ItemForm(props) {
                     >
                         <Form.Label>Impuesto</Form.Label>
                         <Form.Control
-                            value={product.tax}
                             defaultValue={product.tax}
                             name="tax"
                             required
@@ -157,11 +187,4 @@ function ItemForm(props) {
                         />
                         <FormControl.Feedback>Correcto</FormControl.Feedback>
                     </Form.Group>
-                </Form.Row>
-                <Form.Group></Form.Group>
-                <Button type="submit">Create</Button>
-            </Form>
-        </Aux>
-    );
-}
-export default ItemForm;
+ */

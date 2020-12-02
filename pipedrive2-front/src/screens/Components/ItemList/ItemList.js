@@ -10,7 +10,7 @@ const itememList = (props) => {
             <Aux>
                 <Table>
                     <thead>
-                        <tr scrollable={true}>
+                        <tr>
                             <th>#</th>
                             <th>Nombre</th>
                             <th>codigo de producto</th>
