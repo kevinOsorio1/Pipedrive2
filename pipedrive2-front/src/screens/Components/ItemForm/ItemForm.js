@@ -2,22 +2,21 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
-
+import ButtonContext from '../../../UI/Button/Button';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { create } from "../../../services/ItemServices";
+import { create, update} from "../../../services/ItemServices";
 import CreateProduct from "./CreateProduct";
 const DEFAULT_PRODUCT = {
     name: "",
     code: "",
     category_id: 0,
     unit: "",
-    tax: 0,
 };
 function ItemForm(props) {
     const [validated, setValidated] = useState(false);
-    const [product, setProduct] = useState(DEFAULT_PRODUCT);
-
+    const [product, setProduct] = useState(props.product ? props.product : DEFAULT_PRODUCT );
+    
     const handleSubmit = (event) => {
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
@@ -29,6 +28,13 @@ function ItemForm(props) {
 
         setValidated(true);
     };
+    const onClickHandler = () => {
+        if(props.context==='create'){
+            create(product);
+        }else if(props.context==='put'){
+            update(props.id,product);
+        }
+    }
     
     const handleChange = (ev) => {
         const { value, name } = ev.target;
@@ -50,6 +56,7 @@ function ItemForm(props) {
                         <Form.Label>Nombre de Producto</Form.Label>
                         <Form.Control
                             name="name"
+                            defaultValue={product.name}
                                required
                             type="text"
                             placeholder="Nombre de Producto"
@@ -61,6 +68,7 @@ function ItemForm(props) {
                     <Form.Group as={Col} md="7" controlId="code">
                         <Form.Label>Codigo del Producto</Form.Label>
                         <Form.Control
+                        defaultValue={product.code}
                             name="code"
                             type="text"
                             placeholder="Codigo del Producto"
@@ -77,7 +85,6 @@ function ItemForm(props) {
                         >
                             <option>1</option>
                             <option>2</option>
-                            <option>3</option>
                         </Form.Control>
                         <FormControl.Feedback>Correcto</FormControl.Feedback>
                     </Form.Group>
@@ -89,32 +96,17 @@ function ItemForm(props) {
                     >
                         <Form.Label>Unidad</Form.Label>
                         <Form.Control
+                        defaultValue={product.unit}
                             name="unit"
                             type="text"
                             placeholder="Unidad"
                         />
                         <FormControl.Feedback>Correcto</FormControl.Feedback>
                     </Form.Group>
-                    <Form.Group
-                        onChange={handleChange}
-                        as={Col}
-                        md="7"
-                        controlId="tax"
-                    >
-                        <Form.Label>Impuesto</Form.Label>
-                        <Form.Control
-                            name="tax"
-                            required
-                            type="number"
-                            placeholder="Impuesto"
-                        />
-                        <FormControl.Feedback>Correcto</FormControl.Feedback>
-                    </Form.Group>
+                    
                 </Form.Row>
                 <Form.Group></Form.Group>
-                <Button type="button" onClick={() =>{
-                    create(product)
-                    }}>Create</Button>
+                <ButtonContext type="button" clicked={onClickHandler}>Create</ButtonContext>
             </Form>
         </div>
     );

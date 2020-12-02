@@ -30,11 +30,11 @@ function AppRouter(props) {
                     </div>
 
                     <Switch>
-                        <Route path="/producto/:id">
+                        <Route path="/product/:id">
                             <ItemsDetailsContainer />
                         </Route>
                         <Route path="/" exact>
-                            {<ItemsContainer />}
+                            <ItemsContainer />
                         </Route>
 
 

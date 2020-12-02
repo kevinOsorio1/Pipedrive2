@@ -24,7 +24,7 @@ const Items = (props) => {
                 use={console.log("post product")}
                 title="Crear nuevo producto"
             >
-                <ItemForm show={true} />
+                <ItemForm context='create' show={true} />
             </Modal>
             <ItemList data={data} />
         </div>

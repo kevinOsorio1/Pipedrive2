@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const API_PIPE="https://developers.pipedrive.com/docs/api/v1/#!/Products"
+const API_PIPE="https://api.pipedrive.com/v1/"
 const API = axios.create({
-    baseURL: API_PIPE,
+    baseURL: "http://agustinfranchetti.pythonanywhere.com/",
 });
 
 export default API;
