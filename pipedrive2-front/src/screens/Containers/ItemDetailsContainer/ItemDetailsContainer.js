@@ -8,14 +8,14 @@ import { useParams } from 'react-router-dom';
 import { findById } from "../../../services/ItemServices";
 function ItemDetailsContainer(props) {
     const [product, setProduct] = useState(props.item);
-    let {id} = useParams();
+    const {id} = useParams();
 
     useEffect(() => {
-        findById(parseInt(id)).then((data) => {
+        findById(id).then((data) => {
             console.log('find by id', data)
             setProduct(data)
         })
-    });
+    },[id]);
 
     return (
         <Aux>

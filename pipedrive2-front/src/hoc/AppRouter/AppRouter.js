@@ -21,7 +21,7 @@ function AppRouter(props) {
                             Productos
                         </Link>
                         <NavLink
-                            to="/producto"
+                            to="/producto/:id"
                             className="btn btn-dark"
                             activeClassName="active"
                         >
@@ -30,13 +30,14 @@ function AppRouter(props) {
                     </div>
 
                     <Switch>
+                        <Route path="/producto/:id">
+                            <ItemsDetailsContainer />
+                        </Route>
                         <Route path="/" exact>
                             {<ItemsContainer />}
                         </Route>
 
-                        <Route path="/producto">
-                            <ItemsDetailsContainer />
-                        </Route>
+
 
                     </Switch>
 

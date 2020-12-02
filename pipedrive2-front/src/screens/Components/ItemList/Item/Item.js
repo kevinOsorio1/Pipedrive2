@@ -7,13 +7,13 @@ function Item(props) {
     console.log('props data on item', props.data)
     let history = useHistory();
     function handleClick() {
-        history.push("/product/:id",{id:props.data.id});
-      }
+        history.push(`/product/${props.data.id}`);
+    }
     const displayItemEdit = () =>{
         return (<ItemDetailsContainer item={props.data}/>);
     }
     return (
-        <tr onClick={handleClick} key={props.data.id}>
+        <tr  onClick={handleClick} key={props.data.id}>
             <td>{props.data.id}</td>
             <td>{props.data.name}</td>
             <td>{props.data.code}</td>

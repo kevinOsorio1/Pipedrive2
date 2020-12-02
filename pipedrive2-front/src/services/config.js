@@ -1,14 +1,8 @@
 import axios from "axios";
-const BASE_URL = "https://api.pipedrive.com/v1";
 
+const API_PIPE="https://developers.pipedrive.com/docs/api/v1/#!/Products"
 const API = axios.create({
-    baseUrl: "https://api.pipedrive.com/v1",
-    headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-        'Authorization': '5e0c57f012b8c4af1fb8c084edd9171619140d53'
-        
-    },
+    baseURL: API_PIPE,
 });
 
 export default API;

@@ -1,14 +1,16 @@
 import axios from "./config";
 import ItemsEndpoints from "./Endpoints/Endpoints";
 import React from "react";
-
+import Api from './config'
 const BASE_URL = "https://api.pipedrive.com/v1";
 export async function findAll() {
-    let res = await axios
+    let res = await Api
         .get(
-            "https://api.pipedrive.com/v1/products?start=0&api_token=5e0c57f012b8c4af1fb8c084edd9171619140d53"
+            ItemsEndpoints.LIST_ITEMS
         )
-        .then((response) => response.data).then(res=> res.data)
+        .then((response) => {
+            console.log(response);
+            return response.data}).then((res)=> res.data).then(res => res.product)
         .then((data) => {
             const loadedItems = [];
             for (const key in data) {
@@ -28,13 +30,14 @@ export async function findAll() {
 }
 
 export async function findById(id) {
-    let res = await axios
-        .get(BASE_URL + ItemsEndpoints.ITEM_DETAIL + id)
-        .then((res) => res.data.data);
+    let res = await Api
+        .get(ItemsEndpoints.ITEM_DETAIL + id
+    )
+        .then((res) => res.data);
     return res;
 }
 export async function create(item) {
-    console.log(ItemsEndpoints.CREATE_ITEM);
+    console.log(``);
     const procecedItem = {
         name: item.name,
         code: item.code,
@@ -44,16 +47,10 @@ export async function create(item) {
 
     console.log(procecedItem);
 
-    let res = await axios
-        .post(
-            "https://api.pipedrive.com/v1/products?api_token=5e0c57f012b8c4af1fb8c084edd9171619140d53",
+    let res = await Api
+        .post(ItemsEndpoints.CREATE_ITEM,
             procecedItem,
-            {
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                },
-            }
+            
         )
         .then((data) => console.log(data))
         .catch((err) => console.error(err));
