@@ -10,12 +10,7 @@ const Items = (props) => {
     const [data, setData] = useState();
     const [headers, setHeaders] = useState();
     useEffect(() => {
-        findAll().then((commingData) => {
-            console.log("comming", commingData);
-            const loadedItems = commingData;
-            return loadedItems;
-
-        }).then(loadedItems => {
+        findAll().then(loadedItems => {
             console.log('loadeditems to state' ,loadedItems);
             setData([...loadedItems]);
             

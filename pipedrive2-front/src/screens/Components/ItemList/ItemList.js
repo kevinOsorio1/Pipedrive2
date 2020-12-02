@@ -12,7 +12,7 @@ function ItemList(props) {
             <div>
                 <Table bordered={true}>
                     <thead>
-                        <tr>
+                        <tr key='sad'>
                             <th>Nombre de Producto</th>
                             <th>codigo de producto</th>
                         </tr>

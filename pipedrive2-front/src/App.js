@@ -1,11 +1,11 @@
 import "./App.css";
 import Layout from "./hoc/Layout/Layout";
-
+import AppRouter from './hoc/AppRouter/AppRouter';
 function App() {
     return (
-        <div>
+        <AppRouter>
             <Layout />
-        </div>
+        </AppRouter>
     );
 }
 
