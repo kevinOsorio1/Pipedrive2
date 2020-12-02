@@ -13,6 +13,7 @@ import ItemsContainer from "../../screens/Containers/ItemsContainer/ItemsContain
 
 import Aux from "../../hoc/Aux";
 import ItemForm from "../../screens/Components/ItemForm/ItemForm";
+import ItemDetailsContainer from "../../screens/Containers/ItemDetailsContainer/ItemDetailsContainer";
 function Layout() {
     return (
         <Aux>
@@ -37,8 +38,8 @@ function Layout() {
                             {<ItemsContainer />}
                         </Route>
 
-                        <Route path="/producto/:id">
-                            aqui va el detalle producto
+                        <Route path="/producto">
+                            <ItemDetailsContainer/>
                         </Route>
                     </Switch>
 
