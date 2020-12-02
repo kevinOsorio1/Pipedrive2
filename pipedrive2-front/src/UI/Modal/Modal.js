@@ -14,7 +14,7 @@ function ModalContext(props) {
     const handleShow = () => setShow(true);
 
     return (
-        <Aux>
+        <Aux style={classes.Modal}>
             <Jumbotron>
                 <ButtonContext type="primary" clicked={handleShow}>
                     Crear Nuevo Producto

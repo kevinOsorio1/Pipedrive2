@@ -52,7 +52,7 @@ function ItemForm(props) {
                         <Form.Control
                             defaultValue={product.name}
                             name="name"
-                            required
+                               required
                             type="text"
                             placeholder="Nombre de Producto"
                             onChange={handleChange}
