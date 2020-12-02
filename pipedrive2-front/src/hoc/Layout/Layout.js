@@ -15,7 +15,8 @@ import Aux from "../../hoc/Aux";
 import ItemForm from "../../screens/Components/ItemForm/ItemForm";
 function Layout() {
     return (
-        <div className="container mt-5">
+        <Aux>
+            <div className="container mt-5">
             <Router>
                 <div className="container">
                     <div className="btn-group mb-5">
@@ -33,7 +34,7 @@ function Layout() {
 
                     <Switch>
                         <Route path="/" exact>
-                            <ItemsContainer />
+                            {<ItemsContainer />}
                         </Route>
 
                         <Route path="/producto/:id">
@@ -45,6 +46,7 @@ function Layout() {
                 </div>
             </Router>
         </div>
+        </Aux>
     );
 }
 
