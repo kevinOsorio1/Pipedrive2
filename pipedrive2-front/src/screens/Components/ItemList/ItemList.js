@@ -1,28 +1,23 @@
 import React, { useState } from "react";
 import Table from "react-bootstrap/Table";
-
+import ItemHeader from './ItemHeader/ItemHeader'
 import Item from "./Item/Item";
 // Componente que lista los items recibidos
 function ItemList(props) {
 
-    console.log('products item list', props.data);
+
+
     console.log("RENDERING ITEMLIST");
     return (
         <div>
             <div>
                 <Table bordered={true}>
                     <thead>
-                        <tr key='sad'>
-                            <th>Nombre de Producto</th>
-                            <th>codigo de producto</th>
-                        </tr>
+                        <ItemHeader fields={props.fields} />
                     </thead>
-                    <tbody>{(props.data || []).map((item) => {
-                        for (const keys in item) {
-                            return (<Item data={item}></Item>);
-                        }
-
-                    })}</tbody>
+                    <tbody>{
+                        props.products.map(product => <Item data={product} id={product.id} />)
+                    }</tbody>
                 </Table>
             </div>
         </div>

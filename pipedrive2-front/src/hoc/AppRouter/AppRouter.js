@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ItemsDetailsContainer from '../../screens/Containers/ItemDetailsContainer/ItemDetailsContainer';
 import ItemsContainer from '../../screens/Containers/ItemsContainer/ItemsContainer';
 import {
@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 
 function AppRouter(props) {
-    const [url, setUrl] = useState();
+
 
     return (
         <div className="container mt-5">
